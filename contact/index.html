@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | UB Software Solutions</title>
+  <meta name="description" content="Contact UB Software Solutions, Jamnagar, Gujarat. Registered address, Udyam number, email, phone and business hours." />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="../index.html">UB <span>Software Solutions</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+        <li><a href="../terms/index.html">Terms &amp; Conditions</a></li>
+        <li><a class="active" href="../contact/index.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head">
+      <div class="container">
+        <h1>Contact &amp; Support</h1>
+        <p>We usually reply within one business day.</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="container contact-grid">
+        <div>
+          <h2 style="margin-top:0">Business Details</h2>
+          <table class="details-table">
+            <tr><th>Legal Business Name</th><td>UB Software Solutions</td></tr>
+            <tr><th>Business Structure</th><td>Sole Proprietorship (Micro Enterprise - Software &amp; IT Services)</td></tr>
+            <tr><th>Proprietor / Founder</th><td>Uttamkumar Rameshbhai Boda</td></tr>
+            <tr><th>Udyam Registration No.</th><td>UDYAM-GJ-10-0089483</td></tr>
+            <tr><th>Registered Office</th><td>S/O Rameshbhai, Nathuvadla, Nathuvadala, Jamnagar, Gujarat - 361210, India</td></tr>
+            <tr><th>Email</th><td><a href="mailto:uttamboda25@gmail.com">uttamboda25@gmail.com</a></td></tr>
+            <tr><th>Phone / WhatsApp</th><td><a href="tel:+916354422522">+91 63544 22522</a></td></tr>
+            <tr><th>Business Hours</th><td>Monday - Saturday, 10:00 AM - 7:00 PM IST</td></tr>
+          </table>
+        </div>
+
+        <div>
+          <h2 style="margin-top:0">Send Us a Message</h2>
+          <form id="contactForm" novalidate>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email" />
+
+            <label for="phone">Phone Number (optional)</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../privacy-policy/index.html">Privacy Policy</a></li>
+        <li><a href="../terms/index.html">Terms &amp; Conditions</a></li>
+        <li><a href="../contact/index.html">Contact Us</a></li>
+      </ul>
+      <p>&copy; 2026 UB Software Solutions. All rights reserved.</p>
+      <p>Registered Office: S/O Rameshbhai, Nathuvadla, Nathuvadala, Jamnagar, Gujarat - 361210, India</p>
+      <p>Udyam Registration No.: UDYAM-GJ-10-0089483</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('navToggle');
+      var links = document.getElementById('navLinks');
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+
+      // Contact form: validates, then opens the visitor's email client with the message
+      // addressed to the official support email (no backend required on GitHub Pages).
+      var form = document.getElementById('contactForm');
+      var status = document.getElementById('formStatus');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = form.name.value.trim();
+        var email = form.email.value.trim();
+        var phone = form.phone.value.trim();
+        var message = form.message.value.trim();
+        status.style.color = '#B91C1C';
+        if (!name || !message) { status.textContent = 'Please enter your name and message.'; return; }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { status.textContent = 'Please enter a valid email address.'; return; }
+        var body = 'Name: ' + name + '\nEmail: ' + email + (phone ? '\nPhone: ' + phone : '') + '\n\n' + message;
+        window.location.href = 'mailto:uttamboda25@gmail.com?subject=' +
+          encodeURIComponent('Website enquiry from ' + name) + '&body=' + encodeURIComponent(body);
+        status.style.color = '#166534';
+        status.textContent = 'Thank you. Your email app should open with the message ready to send to uttamboda25@gmail.com.';
+        form.reset();
+      });
+    })();
+  </script>
+</body>
+</html>
